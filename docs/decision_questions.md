@@ -1,63 +1,62 @@
-# Cuestionario del Sistema de Decisión de Estructuras de Datos
+Data Structure Decision System Questionnaire
+This document details the key questions used by the system to determine the most suitable data structure. The approach is to progressively rule out options based on fundamental properties: linearity, access, ordering, and relationships.
 
-Este documento detalla las preguntas clave utilizadas por el sistema para determinar la estructura de datos más adecuada. El enfoque es descartar opciones progresivamente basándose en las propiedades fundamentales de las estructuras: linealidad, acceso, ordenamiento y relaciones.
+Design Justification
+The questions were designed to divide the decision space into logical categories:
 
-## Justificación del Diseño
+Nature of the data: Are they linear or relational?
 
-Las preguntas fueron diseñadas para dividir el espacio de decisión en categorías lógicas:
+Order requirements: Is strict ordering or priority required?
 
-1.  **Naturaleza de los datos:** ¿Son lineales o relacionales?
-2.  **Requisitos de orden:** ¿Se requiere ordenamiento estricto o prioridad?
-3.  **Restricciones de acceso:** ¿LIFO, FIFO o acceso aleatorio?
+Access constraints: LIFO, FIFO, or random access?
 
-## Lista de Preguntas
+List of Questions
+Below are the questions as they appear in the program's execution flow:
 
-A continuación se presentan las preguntas tal como aparecen en el flujo de ejecución del programa:
+Question 1: Do the data represent complex network-like relationships (multiple connections between elements, such as maps or social networks)?
 
-**Pregunta 1:**
-¿Los datos representan relaciones complejas tipo red (conexiones múltiples entre elementos, como mapas o redes sociales)?
+Purpose: Differentiate between linear/hierarchical structures and Graphs.
 
-- **Propósito:** Diferenciar entre estructuras lineales/jerárquicas y Grafos.
-- **Opciones:** Sí / No
+Options: Yes / No
 
-**Pregunta 2:**
-¿Los datos tienen una estructura jerárquica (padres/hijos) o requieren mantenerse ordenados para búsquedas rápidas?
+Question 2: Does the data have a hierarchical structure (parent/child) or require maintaining order for fast searches?
 
-- **Propósito:** Identificar la necesidad de Árboles (BST, AVL, Heap) frente a estructuras lineales simples.
-- **Opciones:** Sí / No
+Purpose: Identify the need for Trees (BST, AVL, Heap) versus simple linear structures.
 
-**Pregunta 3:**
-(Si es jerárquico) ¿Necesitas acceder siempre al elemento de MAYOR prioridad o valor rápidamente (ej. colas de prioridad)?
+Options: Yes / No
 
-- **Propósito:** Distinguir entre un Heap (Montículo) y árboles de búsqueda (BST/AVL).
-- **Opciones:** Sí / No
+Question 3: (If hierarchical) Do you always need to access the element with the HIGHEST priority or value quickly (e.g., priority queues)?
 
-**Pregunta 4:**
-(Si es árbol de búsqueda) ¿Te preocupa que el árbol se desbalancee y degrade el rendimiento (quieres O(log n) garantizado)?
+Purpose: Distinguish between a Heap and search trees (BST/AVL).
 
-- **Propósito:** Decidir entre un BST simple y un árbol autobalanceado (AVL).
-- **Opciones:** Sí / No
+Options: Yes / No
 
-**Pregunta 5:**
-¿El orden de inserción y eliminación es estricto y limitado (solo por los extremos)?
+Question 4: (If search tree) Are you concerned about the tree becoming unbalanced and degrading performance (do you want guaranteed O(log n))?
 
-- **Propósito:** Identificar pilas (Stacks) y colas (Queues).
-- **Opciones:** Sí / No
+Purpose: Decide between a simple BST and a self-balancing tree (AVL).
 
-**Pregunta 6:**
-(Si es estricto) ¿Necesitas que el ÚLTIMO elemento en entrar sea el PRIMERO en salir (comportamiento de Pila/LIFO)?
+Options: Yes / No
 
-- **Propósito:** Diferenciar Stack (LIFO) de Queue (FIFO).
-- **Opciones:** Sí / No
+Question 5: Is the order of insertion and deletion strict and limited (only at the ends)?
 
-**Pregunta 7:**
-¿Conoces el tamaño exacto de datos (es fijo) y necesitas acceso rápido directo por índice (ej. dato[5])?
+Purpose: Identify Stacks and Queues.
 
-- **Propósito:** Recomendar Arrays estáticos para máxima velocidad de acceso frente a estructuras dinámicas.
-- **Opciones:** Sí / No
+Options: Yes / No
 
-**Pregunta 8:**
-(Si es lista dinámica) ¿Los datos deben recorrerse en un ciclo continuo (el último elemento conecta de nuevo con el primero)?
+Question 6: (If strict) Do you need the LAST element in to be the FIRST one out (Stack/LIFO behavior)?
 
-- **Propósito:** Distinguir entre una Lista Enlazada simple y una Lista Circular.
-- **Opciones:** Sí / No
+Purpose: Differentiate Stack (LIFO) from Queue (FIFO).
+
+Options: Yes / No
+
+Question 7: Do you know the exact size of the data (is it fixed) and do you need fast direct access by index (e.g., data[5])?
+
+Purpose: Recommend Static Arrays for maximum access speed versus dynamic structures.
+
+Options: Yes / No
+
+Question 8: (If dynamic list) Must the data be traversed in a continuous cycle (the last element connects back to the first)?
+
+Purpose: Distinguish between a simple Linked List and a Circular List.
+
+Options: Yes / No
