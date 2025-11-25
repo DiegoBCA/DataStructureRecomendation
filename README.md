@@ -49,3 +49,40 @@ Open your terminal in the project's root folder and run:
 **1. Compile:**
 ```bash
 gcc src/main.c src/results.c -o decision_system
+
+Run:
+
+Windows:
+
+Bash
+
+.\decision_system.exe
+Linux / macOS:
+
+Bash
+
+./decision_system
+🧪 Test Instructions
+To validate the system logic, you can follow these manual test flows:
+
+Test Case 1: Graph (Relationships)
+
+Run the program.
+
+Question 1: "Do the data represent complex relationships...?" -> Answer s (Yes).
+
+Expected Result: Recommendation of "GRAPH" with node and edge diagram.
+
+Test Case 2: Stack (LIFO)
+
+Run the program.
+
+Question 1 -> n (No).
+
+Question 2 (Hierarchical) -> n (No).
+
+Question 5 (Strict order) -> s (Yes).
+
+Question 6 (LIFO) -> s (Yes).
+
+Expected Result: Recommendation of "STACK" explaining the Last-In-First-Out behavior.
