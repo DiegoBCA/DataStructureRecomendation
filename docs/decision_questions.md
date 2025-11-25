@@ -42,6 +42,7 @@ graph TD
     Q8 -- Yes --> R_CList[Circular Linked List]
     Q8 -- No --> R_List[Simple Linked List]
 
+```
 ❓ List of Questions
 Below are the questions as they appear in the program's execution flow:
 
