@@ -1,41 +1,41 @@
-# Plan de Pruebas Manuales (Test Plan)
+# Manual Test Plan
 
-Este documento describe dos casos de prueba diseñados para validar que el sistema recomienda la estructura correcta basándose en diferentes caminos lógicos.
-
----
-
-## 🧪 Test Case 1: Validación de Estructura de Grafo
-**Objetivo:** Verificar que el sistema detecta correctamente la necesidad de una estructura relacional compleja.
-
-**Pasos de Ejecución:**
-1. Iniciar el programa (`./decision_system`).
-2. Aparece la **Pregunta 1**: "¿Los datos representan relaciones complejas tipo red...?"
-3. **Acción del Usuario:** Ingresar `s` (Sí) y presionar Enter.
-
-**Resultado Esperado:**
-* El sistema no debe hacer más preguntas.
-* El sistema debe mostrar el bloque "STRUCTURE: GRAPH".
-* Debe aparecer la ilustración ASCII de nodos conectados.
-* Debe mostrar la justificación: "Data describes relationships instead of sequences".
-
-**Estado:** [PASSED]
+This document outlines two manual test cases designed to validate that the system recommends the correct data structure based on different logical paths.
 
 ---
 
-## 🧪 Test Case 2: Validación de Pila (Stack) - Ruta LIFO
-**Objetivo:** Verificar que el sistema navega correctamente por las ramas de descarte (No es Grafo -> No es Árbol) hasta llegar a una estructura lineal estricta.
+## 🧪 Test Case 1: Graph Structure Validation
+**Objective:** Verify that the system correctly detects the need for a complex relational structure.
 
-**Pasos de Ejecución:**
-1. Iniciar el programa (`./decision_system`).
-2. **Pregunta 1** (Relaciones): Ingresar `n` (No).
-3. **Pregunta 2** (Jerárquico/Orden): Ingresar `n` (No).
-4. **Pregunta 5** (Orden estricto LIFO/FIFO): Ingresar `s` (Sí).
-5. **Pregunta 6** (¿Último en entrar es primero en salir - LIFO?): Ingresar `s` (Sí).
+**Execution Steps:**
+1. Start the program (`./decision_system`).
+2. **Question 1** appears: "1. ¿Los datos representan relaciones complejas tipo red...?" (Do data represent complex network relationships?)
+3. **User Action:** Enter `s` (Yes) and press Enter.
 
-**Resultado Esperado:**
-* El sistema debe recomendar "STRUCTURE: STACK".
-* Debe mostrar la ilustración de una pila vertical.
-* Debe mostrar el pseudocódigo de `push` y `pop`.
-* La justificación debe mencionar: "Most recent element must be removed first".
+**Expected Result:**
+* The system should NOT ask any further questions.
+* The system must display the block "**STRUCTURE: GRAPH**".
+* The ASCII illustration of connected nodes must appear.
+* It must display the justification: "Data describes relationships instead of sequences".
 
-**Estado:** [PASSED]
+**Status:** [PASSED]
+
+---
+
+## 🧪 Test Case 2: Stack Validation (LIFO Path)
+**Objective:** Verify that the system correctly navigates the discard branches (Not Graph -> Not Tree) to reach a strict linear structure.
+
+**Execution Steps:**
+1. Start the program (`./decision_system`).
+2. **Question 1** (Relations): Enter `n` (No).
+3. **Question 2** (Hierarchy/Order): Enter `n` (No).
+4. **Question 5** (Strict Order LIFO/FIFO): Enter `s` (Yes).
+5. **Question 6** (Last-In First-Out): Enter `s` (Yes).
+
+**Expected Result:**
+* The system must recommend "**STRUCTURE: STACK**".
+* It must display the illustration of a vertical stack.
+* It must display the pseudocode for `push` and `pop`.
+* The justification must state: "Most recent element must be removed first".
+
+**Status:** [PASSED]
