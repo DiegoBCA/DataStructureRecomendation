@@ -1,47 +1,51 @@
 # Data Structure Guided Decision System
 
-**Equipo:** [Tu Nombre] / [Nombre Compañero 2] / [Nombre Compañero 3]
-**Curso:** Data Structure Course
-**Fecha:** Noviembre 2025
+**Team:** 
+María Fernanda Sierra Guzmán - 179422
+Axel Chávez Hernández - 180999
+Diego Bedolla Carrillo - 181439
+
+**Course:** Data Structure Course
+**Date:** November 2025
 
 ## 📖 Overview
-Este proyecto implementa un **Sistema de Decisión Guiada** diseñado para ayudar a desarrolladores y estudiantes a seleccionar la estructura de datos más adecuada para un problema específico.
+[cite_start]This project implements a **Guided Decision System** designed to assist developers and students in selecting the most appropriate data structure for a specific problem[cite: 5, 7].
 
-A través de una serie de 6 a 8 preguntas interactivas sobre la naturaleza de los datos y los requisitos de rendimiento, el sistema analiza las respuestas y recomienda una estructura (como Arrays, Linked Lists, BSTs, Grafos, etc.).
+[cite_start]Through a sequence of 6 to 8 interactive questions regarding data behavior and performance constraints, the system analyzes the answers and recommends a structure (such as Arrays, Linked Lists, BSTs, Graphs, etc.)[cite: 23].
 
-El sistema no solo da el nombre de la estructura, sino que proporciona un contexto educativo completo:
-1.  **Racional:** ¿Por qué se eligió esta estructura?
-2.  **Ilustración:** Representación visual (Arte ASCII).
-3.  **Pseudocódigo:** Algoritmos principales con complejidad Big-O.
-4.  **Ejemplo Real:** Un caso de uso práctico basado en tareas académicas.
+[cite_start]The system not only provides the name of the structure but also offers a complete educational context [cite: 8-12]:
+1.  **Rationale:** Why was this structure chosen?
+2.  **Illustration:** Visual representation (ASCII Art).
+3.  **Pseudocode:** Main algorithms with Big-O complexity.
+4.  **Real Example:** A practical use case based on academic assignments.
 
 ## ✨ Features
-* **Lógica de Decisión Robusta:** Distingue entre estructuras lineales, jerárquicas y relacionales.
-* **Cobertura Amplia:** Soporta Arrays, Listas (Simples/Circulares), Stacks, Queues, BST, AVL, Heaps y Grafos.
-* **Visualización Integrada:** Muestra diagramas ASCII directamente en la consola.
-* **Run-Anywhere:** Escrito en C estándar, compatible con Windows, Linux y macOS.
-* **Script de Automatización:** Incluye `run.bat` para ejecución rápida en Windows.
+* [cite_start]**Robust Decision Logic:** Distinguishes between linear, hierarchical, and relational structures[cite: 31].
+* [cite_start]**Broad Coverage:** Supports Arrays, Lists (Simple/Circular), Stacks, Queues, BST, AVL, Heaps, and Graphs[cite: 33].
+* [cite_start]**Integrated Visualization:** Displays ASCII diagrams directly in the console[cite: 37].
+* [cite_start]**Run-Anywhere:** Written in standard C, compatible with Windows, Linux, and macOS[cite: 46].
+* **Automation Script:** Includes `run.bat` for quick execution on Windows.
 
 ## 📂 Project Structure
-La estructura del repositorio sigue los estándares de ingeniería de software:
+[cite_start]The repository structure follows software engineering standards[cite: 51]:
 
-* `/src`: Código fuente (`main.c`, `results.c`, `results.h`).
-* `/docs`: Documentación de la lógica de decisión y el cuestionario.
-* `/diagrams`: Recursos visuales y capturas de demostración.
-* `/example`: Documentación detallada del ejemplo de uso ("Homework Example").
-* `/tests`: Casos de prueba y planes de validación.
+* `/src`: Source code (`main.c`, `results.c`, `results.h`).
+* `/docs`: Documentation for decision logic and the questionnaire.
+* `/diagrams`: Visual resources and demo screenshots.
+* `/example`: Detailed documentation of the use case ("Homework Example").
+* `/tests`: Test cases and validation plans.
 
 ## 🚀 Run Instructions (Native)
 
-### Prerrequisitos
-* Compilador **GCC** instalado (MinGW en Windows, o build-essential en Linux).
+### Prerequisites
+* **GCC** Compiler installed (MinGW on Windows, or build-essential on Linux).
 
-### Opción A: Ejecución Rápida (Windows)
-Simplemente haz doble clic en el archivo `run.bat` ubicado en la raíz del proyecto. Esto compilará y ejecutará el programa automáticamente.
+### Option A: Quick Run (Windows)
+Simply double-click the `run.bat` file located in the project root. This will automatically compile and execute the program.
 
-### Opción B: Compilación Manual (Cualquier S.O.)
-Abre tu terminal en la carpeta raíz del proyecto y ejecuta:
+### Option B: Manual Compilation (Any OS)
+Open your terminal in the project's root folder and run:
 
-**1. Compilar:**
+**1. Compile:**
 ```bash
 gcc src/main.c src/results.c -o decision_system
