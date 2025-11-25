@@ -1,71 +1,68 @@
-# Reglas de Decisión y Lógica del Sistema
+# Decision Rules and System Logic
 
-Este documento describe el árbol de decisión lógico utilizado por el sistema para recomendar una estructura de datos. El proceso sigue un enfoque de descarte jerárquico: primero se evalúa la naturaleza de los datos (relacional vs. lineal), luego los requisitos de ordenamiento y finalmente las restricciones de acceso y memoria.
+This document describes the logical decision tree used by the system to recommend a data structure. The process follows a hierarchical elimination approach: first evaluating the nature of data (relational vs. linear), then ordering requirements, and finally access and memory constraints.
 
-## Diagrama de Flujo Lógico
+## 🔀 Logical Flow
 
-El sistema evalúa las respuestas en el siguiente orden de prioridad:
+The system evaluates user responses in the following priority order:
 
-1.  **¿Son Relaciones Complejas?** (Grafos)
-2.  **¿Es Jerárquico/Ordenado?** (Árboles/Heaps)
-3.  **¿Es Lineal Restrictivo?** (Stacks/Queues)
-4.  **¿Es Lineal de Almacenamiento General?** (Arrays/Listas)
+1.  **Are there Complex Relations?** (Graphs)
+2.  **Is it Hierarchical/Ordered?** (Trees/Heaps)
+3.  **Is it Restrictively Linear?** (Stacks/Queues)
+4.  **Is it General Linear Storage?** (Arrays/Lists)
 
-## Mapeo de Reglas (Input -> Output)
+---
 
-A continuación se detalla la lógica específica para cada recomendación y su justificación (Rationale).
+## ⚙️ Rule Mapping (Input -> Output)
 
-### 1. Rama de Relaciones
+Below is the specific logic for each recommendation and its justification (Rationale).
 
-- **Regla:** Si el usuario indica que los datos representan conexiones múltiples (redes, mapas).
-- **Recomendación:** **GRAFO (Graph)**
-- **Racional:** Los grafos son la única estructura capaz de modelar relaciones N:M (muchos a muchos) de manera eficiente.
+### 1. Relations Branch
 
-### 2. Rama de Jerarquía y Prioridad
+* **Rule:** If the user indicates that the data represents multiple connections (networks, maps).
+    * **Recommendation:** **GRAPH**
+    * **Rationale:** Graphs are the only structure capable of efficiently modeling N:M (many-to-many) relationships.
 
-Si los datos no son grafos, pero requieren ordenamiento o jerarquía:
+### 2. Hierarchy and Priority Branch
 
-- **Regla:** Si se requiere acceso inmediato al elemento de _mayor prioridad_.
+If data is not a graph but requires ordering or hierarchy:
 
-  - **Recomendación:** **MAX HEAP (Montículo)**
-  - **Racional:** Provee acceso O(1) al máximo elemento, ideal para colas de prioridad.
+* **Rule:** If immediate access to the *highest priority* element is required.
+    * **Recommendation:** **MAX HEAP**
+    * **Rationale:** Provides `O(1)` access to the maximum element, ideal for priority queues.
 
-- **Regla:** Si se requiere ordenamiento garantizado y búsquedas rápidas, y se teme el desbalanceo.
+* **Rule:** If guaranteed ordering and fast searches are required, and there is a concern about unbalancing.
+    * **Recommendation:** **AVL TREE**
+    * **Rationale:** Automatically maintains tree balance, guaranteeing operations in `O(log n)` even in the worst case.
 
-  - **Recomendación:** **ÁRBOL AVL**
-  - **Racional:** Mantiene el árbol balanceado automáticamente, garantizando operaciones en O(log n) incluso en el peor caso.
+* **Rule:** If ordering is required but the implementation should be simpler or unbalancing is not critical.
+    * **Recommendation:** **BST (Binary Search Tree)**
+    * **Rationale:** Standard structure for maintaining ordered data and allowing binary searches.
 
-- **Regla:** Si se requiere ordenamiento pero la implementación debe ser más simple o el desbalanceo no es crítico.
-  - **Recomendación:** **BST (Árbol Binario de Búsqueda)**
-  - **Racional:** Estructura estándar para mantener datos ordenados y permitir búsquedas binarias.
+### 3. Restricted Linear Branch
 
-### 3. Rama Lineal Restrictiva
+If data is linear and processing order is strict:
 
-Si los datos son lineales y el orden de procesamiento es estricto:
+* **Rule:** If behavior is LIFO (Last-In, First-Out).
+    * **Recommendation:** **STACK**
+    * **Rationale:** Ideal for history tracking (undo/redo), function calls, and recursion.
 
-- **Regla:** Si el comportamiento es LIFO (Last-In, First-Out).
+* **Rule:** If behavior is FIFO (First-In, First-Out).
+    * **Recommendation:** **QUEUE**
+    * **Rationale:** Ideal for buffers, print queues, and task processing in arrival order.
 
-  - **Recomendación:** **STACK (Pila)**
-  - **Racional:** Ideal para historiales (undo/redo), llamadas a funciones y recursión.
+### 4. Storage and Access Branch
 
-- **Regla:** Si el comportamiento es FIFO (First-In, First-Out).
-  - **Recomendación:** **QUEUE (Cola)**
-  - **Racional:** Ideal para buffers, colas de impresión y procesamiento de tareas en orden de llegada.
+For general linear collections:
 
-### 4. Rama de Almacenamiento y Acceso
+* **Rule:** If the size is known/fixed and fast access by index is needed.
+    * **Recommendation:** **ARRAY**
+    * **Rationale:** Offers the fastest possible access `O(1)` and memory efficiency (no extra pointers), but is static.
 
-Para colecciones lineales generales:
+* **Rule:** If the structure must be cyclic.
+    * **Recommendation:** **CIRCULAR LINKED LIST**
+    * **Rationale:** Allows traversing data indefinitely without resetting pointers, useful for turns or playlists.
 
-- **Regla:** Si el tamaño es conocido/fijo y se necesita acceso rápido por índice.
-
-  - **Recomendación:** **ARRAY (Arreglo)**
-  - **Racional:** Ofrece el acceso más rápido posible O(1) y eficiencia de memoria (sin punteros extra), pero es estático.
-
-- **Regla:** Si la estructura debe ser cíclica.
-
-  - **Recomendación:** **CIRCULAR LINKED LIST**
-  - **Racional:** Permite recorrer los datos indefinidamente sin reiniciar punteros, útil para turnos o playlists.
-
-- **Regla:** Si no se cumple ninguna de las anteriores (inserciones frecuentes, tamaño dinámico, no cíclico).
-  - **Recomendación:** **LINKED LIST (Lista Enlazada)**
-  - **Racional:** Permite crecimiento dinámico y operaciones de inserción/borrado eficientes sin reasignar toda la memoria.
+* **Rule:** If none of the above apply (frequent insertions, dynamic size, not cyclic).
+    * **Recommendation:** **LINKED LIST**
+    * **Rationale:** Allows dynamic growth and efficient insertion/deletion operations without reallocating all memory.
