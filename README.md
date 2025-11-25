@@ -47,9 +47,6 @@ Simply double-click the `run.bat` file located in the project root. This will au
 Open your terminal in the project's root folder and run:
 
 **1. Compile:**
-bash
-gcc src/main.c src/results.c -o decision_system
-
 Run:
 
 Windows:
@@ -62,8 +59,6 @@ Linux / macOS:
 Bash
 
 ./decision_system
-
-
 🧪 Test Instructions
 To validate the system logic, you can follow these manual test flows:
 
